@@ -28,7 +28,7 @@ interface DefaultOptions extends CommonOptions {
   filter?: string;
 }
 
-interface ConsulOptions {
+export interface ConsulOptions {
   host?: string;
   port?: number;
   secure?: boolean;
