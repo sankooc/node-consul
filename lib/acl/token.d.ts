@@ -41,8 +41,8 @@ export interface TokenResult {
 
 interface TokenUpdateOptions {
   Description?: string;
-  Policies?: { Name: string }[];
-  Local?: boolean;
+  Policies?: { ID?: string; Name?: string }[];
+  Roles?: { ID?: string; Name?: string }[];
 }
 
 interface UpdateResult {
@@ -82,7 +82,7 @@ declare class AclToken {
   update(
     accessorID: string,
     options: TokenUpdateOptions,
-  ): Promise<UpdateResult>;
+  ): Promise<TokenResult>;
 
   delete(accessorID: string): Promise<boolean>;
 

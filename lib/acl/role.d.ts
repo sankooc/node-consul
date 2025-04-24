@@ -50,12 +50,12 @@ declare class AclRole {
   /**
    * Reads an ACL role by ID or name
    */
-  read(idOrName: string): Promise<ReadRoleResponse>;
+  read(idOrName: string): Promise<Role>;
 
   /**
    * Updates an existing ACL role
    */
-  update(idOrName: string, role: Role): Promise<ReadRoleResponse>;
+  update(idOrName: string, role: Role): Promise<Role>;
 
   /**
    * Deletes an ACL role
