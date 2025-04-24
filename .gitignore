@@ -11,3 +11,5 @@ example*.js
 node_modules
 package-lock.json
 tmp
+test/run.js
+test.sh

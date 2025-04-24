@@ -1,4 +1,10 @@
 import { AclLegacy } from "./acl/legacy";
+import { AclToken } from "./acl/token";
+import { AclMethod } from "./acl/method";
+import { AclPolicy } from "./acl/policy";
+import { AclTemplatedPolicy } from "./acl/templatedPolicy";
+import { AclRole } from "./acl/role";
+import { AclBindingRule } from "./acl/rule";
 import { CommonOptions, Consul } from "./consul";
 
 interface BootstrapOptions extends CommonOptions {
@@ -27,9 +33,22 @@ declare class Acl {
   constructor(consul: Consul);
 
   consul: Consul;
+
   legacy: AclLegacy;
+  token: AclToken;
+  method: AclMethod;
+  policy: AclPolicy;
+  templatedPolicy: AclTemplatedPolicy;
+  role: AclRole;
+  bindingRule: AclBindingRule;
 
   static Legacy: typeof AclLegacy;
+  static Token: typeof AclToken;
+  static Method: typeof AclMethod;
+  static Policy: typeof AclPolicy;
+  static TemplatedPolicy: typeof AclTemplatedPolicy;
+  static Role: typeof AclRole;
+  static BindingRule: typeof AclBindingRule;
 
   bootstrap(options?: BootstrapOptions): Promise<BootstrapResult>;
 

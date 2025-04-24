@@ -25,6 +25,7 @@
     "temp": "^0.9.4"
   },
   "scripts": {
+    "sim": "npx mocha test/run.js",
     "format": "prettier -w .",
     "test": "jshint lib test && prettier -c . && nyc mocha -- --recursive --check-leaks && nyc check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
     "types": "dtslint test/types",

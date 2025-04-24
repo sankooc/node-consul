@@ -11,6 +11,7 @@ import { Session } from "./session";
 import { Status } from "./status";
 import { Transaction } from "./transaction";
 import { Watch, WatchOptions } from "./watch";
+import { Config } from "./conf";
 
 export interface CommonOptions {
   token?: string;
@@ -49,6 +50,7 @@ declare class Consul {
   session: Session;
   status: Status;
   transaction: Transaction;
+  config: Config;
 
   static Acl: typeof Acl;
   static Agent: typeof Agent;
@@ -61,10 +63,13 @@ declare class Consul {
   static Status: typeof Status;
   static Transaction: typeof Transaction;
   static Watch: typeof Watch;
+  static Config: typeof Config;
 
   destroy(): void;
 
   watch(options: WatchOptions): Watch;
+  snapshot(): Promise<Buffer>;
+  restore(buf: Buffer): Promise<void>;
 }
 
 export { Consul };
