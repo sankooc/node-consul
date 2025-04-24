@@ -33,7 +33,7 @@ export interface TokenResult {
   AccessorID: string;
   SecretID: string;
   Description: string;
-  Policies: { Name: string }[];
+  Policies: { Name: string, ID: string }[];
   Local: boolean;
   CreateTime: string;
   Hash: string;
