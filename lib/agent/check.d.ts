@@ -5,7 +5,7 @@ interface ListOptions extends CommonOptions {
   ns?: string;
 }
 
-interface Check {
+export interface Check {
   Node: string;
   CheckID: string;
   Name: string;

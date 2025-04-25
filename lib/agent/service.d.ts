@@ -5,7 +5,23 @@ interface ListOptions extends CommonOptions {
   filter?: string;
 }
 
-type ListResult = Record<string, any>;
+export interface ServiceInfo {
+  ID: string;
+  Service: string;
+  Tags?: string[];
+  Meta?: Record<string, string>;
+  Port?: number;
+  Address?: string;
+  TaggedAddresses?: Record<string, any>;
+  Weights?: {
+    Passing: number;
+    Warning: number;
+  };
+  EnableTagOverride: boolean;
+  Datacenter?: string;
+  Namespace?: string;
+}
+type ListResult = Record<string, ServiceInfo>;
 
 interface RegisterConnect {
   native?: boolean;
@@ -55,7 +71,7 @@ declare class AgentService {
 
   register(options: RegisterOptions): Promise<RegisterResult>;
   register(name: string): Promise<RegisterResult>;
-
+  config(serviceId: string): Promise<ServiceInfo>;
   deregister(options: DeregisterOptions): Promise<DeregisterResult>;
   deregister(id: string): Promise<DeregisterResult>;
 
